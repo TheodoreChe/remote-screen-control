@@ -1,8 +1,10 @@
+import * as React from 'react';
 import { Layout } from 'components/Layout';
+import { Screen } from 'components/Screen';
 
-const SecondScreen = () => (
-    <Layout title="Second Screen | RSC">
-        <h1>Second Screen Example</h1>
+const SecondScreen: React.FC = () => (
+    <Layout title="Second Screen | RSC" large>
+        <Screen title="Second Screen" link="https://" />
     </Layout>
 );
 
