@@ -1,25 +1,18 @@
 import React, { ReactNode } from 'react';
-import Link from 'next/link';
 import Head from 'next/head';
-import styles from 'styles/common.module.css'
+import styles from 'styles/common.module.css';
 
 type Props = {
     children?: ReactNode;
     title?: string;
+    large?: boolean;
 };
 
-export const Layout = ({ children, title = 'RSC' }: Props) => (
-    <div className={styles.wrapper}>
+export const Layout = ({ children, title = 'RSC', large }: Props) => (
+    <div className={large ? styles.largeWrapper : styles.wrapper}>
         <Head>
             <title>{title}</title>
         </Head>
-        <header>
-            <nav>
-                <Link href="/">
-                    <a>RSC Home</a>
-                </Link>
-            </nav>
-        </header>
         {children}
     </div>
 );
