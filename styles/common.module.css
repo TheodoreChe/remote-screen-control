@@ -3,14 +3,27 @@
     max-width: 904px;
     padding: 0 20px;
     margin: 0 auto;
+    font-size: 17px;
+    line-height: 24px;
+}
+
+.large-wrapper{
+    font-family: sans-serif;
+    padding: 20px;
+    margin: 0;
 }
 
 .title{
     font-family: 'Montserrat', sans-serif;
+    color: #f4205d;
     font-style: normal;
     font-weight: 800;
     font-size: 36px;
     line-height: 40px;
+}
+
+.image{
+    max-width: 100%;
 }
 
 .button{
@@ -25,4 +38,21 @@
     border-radius: 10px;
     cursor: pointer;
     padding: 10px 44px;
+}
+
+.button:hover{
+    background: #fff;
+}
+
+.input{
+    font-style: normal;
+    font-weight: 800;
+    font-size: 17px;
+    line-height: 24px;
+    border: 2px solid #000;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 10px;
+    outline: none;
+    margin: 0 20px;
 }
