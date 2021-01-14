@@ -5,8 +5,14 @@ import styles from 'styles/common.module.css'
 const IndexPage = () => (
     <Layout title="Home | RSC">
         <h1 className={styles.title}>Remote Screen Control Example</h1>
-        <h4>Instruction</h4>
+        <h4>Instruction:</h4>
+        <img className={styles.image} src="assets/step-1.png" alt="first step"/>
         <ul>
+            <li>Open Office 365 PowerPoint Document</li>
+            <li>Start Live Presentation (Slide Show > Present Live)</li>
+            <li>Copy the link</li>
+            <li>Insert a presentation share link</li>
+            <li>Click on the Start button</li>
             <li>
                 Open the{' '}
                 <Link href="/screen/first">
@@ -16,11 +22,13 @@ const IndexPage = () => (
                 <Link href="/screen/second">
                     <a>Second Screen</a>
                 </Link>{' '}
-                in a new Tab
+                in a new Tab for test
             </li>
-            <li>Insert a presentation share link</li>
-            <li>Click on the Start button</li>
+
         </ul>
+
+        <input className={styles.input} type="text" placeholder="ppt.ms/"/>
+        {' '}
         <button className={styles.button}>Start</button>
     </Layout>
 );
