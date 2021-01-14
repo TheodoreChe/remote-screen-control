@@ -7,6 +7,7 @@ import {useSocket} from "lib/useSocket";
 type Props = {
     host: undefined | string;
 }
+
 const IndexPage: React.FC<Props> = ({ host }: Props) => {
     const [link, setLink] = React.useState();
     const socket = useSocket(host);
@@ -24,7 +25,7 @@ const IndexPage: React.FC<Props> = ({ host }: Props) => {
             <img className={styles.image} src="assets/step-1.png" alt="first step"/>
             <ul>
                 <li>Open Office 365 PowerPoint Document</li>
-                <li>Start Live Presentation (Slide Show > Present Live)</li>
+                <li>Start Live Presentation (Slide Show &gt; Present Live)</li>
                 <li>Copy the link</li>
                 <li>Insert a presentation share link</li>
                 <li>Click on the Start button</li>

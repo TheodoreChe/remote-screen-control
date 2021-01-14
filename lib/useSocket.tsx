@@ -2,7 +2,7 @@ import * as React from 'react';
 import io from 'socket.io-client';
 
 export const useSocket = (host: undefined | string) => {
-    const [socket, setSocket] = React.useState();
+    const [socket, setSocket] = React.useState<SocketIOClient.Socket>();
 
     React.useEffect(() => {
         if (host) {
