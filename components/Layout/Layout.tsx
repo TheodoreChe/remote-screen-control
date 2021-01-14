@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
+import styles from 'styles/common.module.css'
 
 type Props = {
     children?: ReactNode;
@@ -8,11 +9,9 @@ type Props = {
 };
 
 export const Layout = ({ children, title = 'RSC' }: Props) => (
-    <>
+    <div className={styles.wrapper}>
         <Head>
             <title>{title}</title>
-            <meta charSet="utf-8" />
-            <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         </Head>
         <header>
             <nav>
@@ -22,5 +21,5 @@ export const Layout = ({ children, title = 'RSC' }: Props) => (
             </nav>
         </header>
         {children}
-    </>
+    </div>
 );

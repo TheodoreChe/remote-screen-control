@@ -1,0 +1,28 @@
+.wrapper{
+    font-family: sans-serif;
+    max-width: 904px;
+    padding: 0 20px;
+    margin: 0 auto;
+}
+
+.title{
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 36px;
+    line-height: 40px;
+}
+
+.button{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 17px;
+    line-height: 24px;
+    border: 2px solid #000000;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 0px #000000;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 10px 44px;
+}
