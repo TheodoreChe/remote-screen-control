@@ -12,6 +12,7 @@
     "moduleResolution": "node",
     "noEmit": true,
     "noFallthroughCasesInSwitch": true,
+    "noImplicitThis": false,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "resolveJsonModule": true,
