@@ -6,7 +6,10 @@ export const useSocket = (host: undefined | string) => {
 
     React.useEffect(() => {
         if (host) {
-            const socketIo = io(host);
+            const socketOptions = {
+                transports: ['websocket']
+            };
+            const socketIo = io(host, socketOptions);
 
             setSocket(socketIo);
             function cleanup() {
