@@ -1,11 +1,25 @@
 import * as React from 'react';
 import { Layout } from 'components/Layout';
 import { Screen } from 'components/Screen';
+import { useSocket } from 'lib/useSocket';
 
-const FirstScreen: React.FC = () => (
-    <Layout title="First Screen | RSC" large>
-        <Screen title="First Screen" link="https://" />
-    </Layout>
-);
+const FirstScreen: React.FC = () => {
+    const [actualLink, setActualLink] = React.useState('');
+    useSocket('presentation', (newLink: string) => setActualLink(newLink));
+
+    return (
+        <Layout title="First Screen | RSC" large>
+            <Screen title="First Screen" link={actualLink} />
+        </Layout>
+    );
+};
+
+export async function getStaticProps() {
+    return {
+        props: {
+            host: process.env.HOST,
+        },
+    };
+}
 
 export default FirstScreen;

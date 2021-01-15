@@ -1,26 +1,38 @@
 import * as React from 'react';
-import io from 'socket.io-client';
+import { SocketContext } from "./socketContext";
 
-export const useSocket = (host: undefined | string) => {
-    const [socket, setSocket] = React.useState<SocketIOClient.Socket>();
+export const useSocket = (
+    eventKey?: string,
+    callback?: Function
+) => {
+    const socket = React.useContext(SocketContext);
+    const callbackRef = React.useRef(callback);
+
+    callbackRef.current = callback;
+
+    const socketHandlerRef = React.useRef(function() {
+        if (callbackRef.current) {
+            callbackRef.current.apply(this, arguments);
+        }
+    });
+
+    const subscribe = () => {
+        if (eventKey) {
+            socket.on(eventKey, socketHandlerRef.current);
+        }
+    };
+
+    const unsubscribe = () => {
+        if (eventKey) {
+            socket.removeListener(eventKey, socketHandlerRef.current);
+        }
+    };
 
     React.useEffect(() => {
-        if (host) {
-            const socketOptions = {
-                transports: ['websocket']
-            };
-            const socketIo = io(host, socketOptions);
+        subscribe();
 
-            setSocket(socketIo);
-            function cleanup() {
-                socketIo.disconnect();
-            }
+        return unsubscribe;
+    }, [eventKey]);
 
-            return cleanup;
-        }
-    }, []);
-
-    console.log('connected: ', socket?.connected);
-    console.log('connected: ',host);
-    return socket;
+    return { socket, unsubscribe, subscribe };
 };
