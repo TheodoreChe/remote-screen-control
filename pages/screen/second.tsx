@@ -14,4 +14,12 @@ const SecondScreen: React.FC = () => {
     );
 };
 
+export async function getStaticProps() {
+    return {
+        props: {
+            host: process.env.HOST,
+        },
+    };
+}
+
 export default SecondScreen;
